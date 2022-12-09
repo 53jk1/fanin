@@ -20,6 +20,9 @@ func main() {
 
 	nowcon := time.Now()
 
+	fmt.Println("Number of CPUs: ", runtime.NumCPU())
+	fmt.Println("Number of Jobs to be done: ", config.JobsToBeDone)
+	fmt.Println("Number of Jobs to be done per Goroutine: ", config.JobsToBeDone/runtime.NumCPU())
 	fmt.Println("GOMAXPROCS:", runtime.GOMAXPROCS(0))
 	numGenerators := 100 * runtime.NumCPU()
 	generators := make([]<-chan interface{}, numGenerators)
