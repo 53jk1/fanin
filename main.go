@@ -35,5 +35,5 @@ func main() {
 	for num := range take.Take(done, fanin.FanIn(done, generators...), config.JobsToBeDone) {
 		a = append(a, num)
 	}
-	fmt.Printf("Function took %v s\n", time.Since(nowcon))
+	fmt.Printf("Function took %v\n", time.Since(nowcon))
 }
