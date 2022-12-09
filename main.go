@@ -35,5 +35,12 @@ func main() {
 	for num := range take.Take(done, fanin.FanIn(done, generators...), config.JobsToBeDone) {
 		a = append(a, num)
 	}
-	fmt.Printf("Function took %v\n", time.Since(nowcon))
+	fmt.Printf("With Fan In pattern function took %v\n", time.Since(nowcon))
+
+	// do the same but without fan in pattern
+	now := time.Now()
+	for i := 0; i < config.JobsToBeDone; i++ {
+		sleep()
+	}
+	fmt.Printf("Without Fan In pattern function took %v\n", time.Since(now))
 }
